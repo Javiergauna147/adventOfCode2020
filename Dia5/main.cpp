@@ -85,57 +85,18 @@ int find_number_of_row(string _rowPartition){
     unsigned short maxRow = 127;
     unsigned short b = 0;
     for(unsigned int i = _rowPartition.length(); i > 0; i--){
-        switch (i){
-            case 1:
-                if(_rowPartition[b] == 'F'){
-                    return minRow;
-                }else{
-                    return maxRow;
-                }
-            break;
-            case 2:
-                if(_rowPartition[b] == 'F'){
-                    maxRow -= pow(2, i-1);
-                }else{
-                    minRow += pow(2,i-1);
-                }
-            break;
-            case 3:
-                if(_rowPartition[b] == 'F'){
-                    maxRow -= pow(2, i-1);
-                }else{
-                    minRow += pow(2,i-1);
-                }
-            break;
-            case 4:
-                if(_rowPartition[b] == 'F'){
-                    maxRow -= pow(2, i-1);
-                }else{
-                    minRow += pow(2,i-1);
-                }
-            break;
-            case 5:
-                if(_rowPartition[b] == 'F'){
-                    maxRow -= pow(2, i-1);
-                }else{
-                    minRow += pow(2,i-1);
-                }
-            break;
-            case 6:
-                if(_rowPartition[b] == 'F'){
-                    maxRow -= pow(2, i-1);
-                }else{
-                    minRow += pow(2,i-1);
-                }
-            break;
-            case 7:
-                if(_rowPartition[b] == 'F'){
-                    maxRow -= pow(2, i-1);
-                }else{
-                    minRow += pow(2,i-1);
-                }
-            break;
-            default: return 255; break;
+        if(i != 1){
+            if(_rowPartition[b] == 'F'){
+                maxRow -= pow(2, i-1);
+            }else{
+                minRow += pow(2,i-1);
+            }
+        }else{
+            if(_rowPartition[b] == 'F'){
+                return minRow;
+            }else{
+                return maxRow;
+            }
         }
         b++;
     }
@@ -146,29 +107,18 @@ int find_number_of_column(string _columnPartition){
     unsigned short maxColumn = 7;
     unsigned short b = 0;
     for(unsigned int i = _columnPartition.length(); i > 0; i--){
-        switch(i){
-            case 1:
-                if(_columnPartition[b] == 'L'){
-                    return minColumn;
-                }else{
-                    return maxColumn;
-                }
-            break;
-            case 2:
-                if(_columnPartition[b] == 'L'){
-                    maxColumn -= pow(2, i-1);
-                }else{
-                    minColumn += pow(2,i-1);
-                }
-            break;
-            case 3:
-                if(_columnPartition[b] == 'L'){
-                    maxColumn -= pow(2, i-1);
-                }else{
-                    minColumn += pow(2,i-1);
-                }
-            break;
-            default: return 255; break;
+        if(i != 1){
+            if(_columnPartition[b] == 'L'){
+                maxColumn -= pow(2, i-1);
+            }else{
+                minColumn += pow(2,i-1);
+            }
+        }else{
+            if(_columnPartition[b] == 'L'){
+                return minColumn;
+            }else{
+                return maxColumn;
+            }
         }
         b++;
     }
