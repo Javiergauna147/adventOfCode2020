@@ -36,7 +36,7 @@ int find_the_bug_in_the_test(vector<instruction> &_instructions, set<int> &_inst
 		}
 
 		if(instructionsDone.find(iteratorPosition) != instructionsDone.end()){
-			//code to execute when star infite loop
+			//code to execute when start infite loop
 			return find_the_bug_in_the_test(_instructions, _instructionsToChange, _itrInstructionToChange + 1);
 		}else{
 			instructionsDone.insert(iteratorPosition);
